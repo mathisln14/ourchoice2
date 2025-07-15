@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Choice - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Oswald', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #000;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('image3filles fond.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 40px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .product-card button {
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      margin-top: 60px;
+    }
+    #cart-section {
+      padding: 30px 20px;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Choice</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="history.html">Our Story</a>
+      <a href="chaussures.html">Shoes</a>
+      <a href="vetements.html">Activewear</a>
+      <a href="#cart-section">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>By Women for Women</h1>
+    <p>Empowering performance through design and comfort.</p>
+  </section>
+
+  <section class="products">
+    <!-- Runner One -->
+    <div class="product-card">
+      <a href="product-runner-one.html">
+        <img src="chaussure blanche.png.webp" alt="Runner One">
+      </a>
+      <h3>Runner One</h3>
+      <p>Lightweight, technical and stylish running shoe.</p>
+      <a href="product-runner-one.html">
+        <button>Add to Cart</button>
+      </a>
+    </div>
+
+    <!-- Blaze Red -->
+    <div class="product-card">
+      <img src="chaussure rouge.jpg.webp" alt="Blaze Red">
+      <h3>Blaze Red</h3>
+      <p>Bold design meets performance. Unavailable for demo.</p>
+      <button disabled style="background-color: #aaa; cursor: not-allowed;">Unavailable</button>
+    </div>
+
+    <!-- Legging -->
+    <div class="product-card">
+      <img src="legging.jpg.avif" alt="Legging">
+      <h3>Essential Legging</h3>
+      <p>Flexible, high-waist legging for every movement.</p>
+      <button disabled style="background-color: #aaa; cursor: not-allowed;">Unavailable</button>
+    </div>
+
+    <!-- T-shirt -->
+    <div class="product-card">
+      <img src="tshirt.jpg" alt="Sport Top">
+      <h3>Active Sport Top</h3>
+      <p>Breathable and soft fabric for top performance.</p>
+      <button disabled style="background-color: #aaa; cursor: not-allowed;">Unavailable</button>
+    </div>
+  </section>
+
+  <section id="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <!-- JS injecte ici le produit -->
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Our Choice. All rights reserved.
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get('product');
+    const size = params.get('size');
+
+    if (product && size) {
+      document.getElementById('cart-items').innerHTML = `
+        <p><strong>${product}</strong> - Size EU ${size} added to cart.</p>
+      `;
+      location.hash = '#cart-section';
+    }
+  </script>
+</body>
+</html>
