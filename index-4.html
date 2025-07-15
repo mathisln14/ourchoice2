@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Choice - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Oswald', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('image3filles fond.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #000;
+    }
+    header {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    section {
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 40px;
+      text-align: center;
+      border-radius: 12px;
+    }
+    h1, h2 {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #333;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin-top: 60px;
+    }
+    #cart-section {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-top: 2px solid #ccc;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .product-img {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Choice</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="history.html">Our Story</a>
+      <a href="chaussures.html">Shoes</a>
+      <a href="vetements.html">Activewear</a>
+      <a href="#cart-section">Cart</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>By Women for Women</h2>
+    <p>Discover sportswear designed to empower and perform.</p>
+  </section>
+
+  <section>
+    <h2>Runner One</h2>
+    <p>The ultimate comfort and performance for women on the move.</p>
+
+    <!-- Lien cliquable sur l'image -->
+    <a href="product-runner-one.html">
+      <img src="chaussure blanche.png.webp" alt="Runner One" style="max-width: 300px; width: 100%; height: auto;">
+    </a>
+
+    <br><br>
+
+    <!-- Lien cliquable sur le bouton -->
+    <a href="product-runner-one.html">
+      <button>Add to Cart</button>
+    </a>
+  </section>
+
+  <section id="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items">
+      <!-- JS injecte ici le produit -->
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Our Choice. All rights reserved.
+  </footer>
+
+  <script>
+    // Vérifie si un produit a été ajouté via les paramètres d'URL
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get('product');
+    const size = params.get('size');
+
+    if (product && size) {
+      document.getElementById('cart-items').innerHTML = `
+        <p><strong>${product}</strong> - Size EU ${size} added to cart.</p>
+      `;
+      location.hash = '#cart-section';
+    }
+  </script>
+</body>
+</html>
